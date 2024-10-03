@@ -10,6 +10,9 @@ if "`c(username)'" == "wb595552" {
 	global outputs 	"C:\Users\wb595552\Github\rrf24_yxi\Stata\Outputs"
 }
 
+version 18
+set seed 10032024
+
 *-------------------------------------------------------------------------------	
 * Load data
 *------------------------------------------------------------------------------- 
@@ -21,7 +24,7 @@ use "${onedrive}/TZA_CCT_baseline.dta", clear
 *------------------------------------------------------------------------------- 
 
 * Drop duplicates
-sort hhid
+isid hhid key, sort // combination of two variables
 by hhid: gen dup = cond(_N==1,0,_n)
 drop if dup==2
 
