@@ -86,7 +86,7 @@
 	replace treat_cost = m_cost if mi(m_cost)	
 	
 				//Cost in USD
-	gen treat_cost_usd = tread_cost * $usd
+	gen treat_cost_usd = treat_cost * $usd
 
 				// Add labels	
 				
@@ -98,6 +98,9 @@
 	drop treat_cost m_cost 
 
 				// Save tempfile  
+				
+	tempfile mem
+	save 	`mem'
 	
 	
 *-------------------------------------------------------------------------------	
@@ -108,7 +111,7 @@
 	// Exercise 5: Merge HH and HH-member data ----
 		// Instructions:
 			// Merge the household-level data with the HH-member level indicators.
-	merge 1:1 hhid using "mean", assert(3) nogen 
+	merge 1:1 hhid using `mem', assert(3) nogen 
 			
 			// Merge hh and member data with the treatment data, ensure the treatment status is included in the final dataset.
  	merge m:1 vid using "${data}/Raw/treat_status.dta", assert(3) nogen 

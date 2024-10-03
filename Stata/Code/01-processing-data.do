@@ -34,7 +34,7 @@
 					food_cons - submissionday
 	
 	* Unit: Household-memebr
-	local hh_mem	gender age read clinic_vist sick days_sick ///
+	local hh_mem	gender age read clinic_visit sick days_sick ///
 					treat_fin treat_cost ill_impact days_impact
 	
 	
@@ -42,7 +42,7 @@
 	foreach mem in `hh_mem' {
 		
 		local mem_vars 		"`mem_vars' `mem'_*"
-		local reshape_mem	"`reshape_men' `mem'_"
+		local reshape_mem	"`reshape_mem' `mem'_"
 	}
 		
 	
@@ -50,7 +50,7 @@
 * Tidy Data: HH
 *-------------------------------------------------------------------------------	
 
-	*preserve 
+	preserve 
 		
 		* Keep HH vars
 		keep `ids' `hh_vars'
