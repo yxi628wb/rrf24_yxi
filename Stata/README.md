@@ -12,3 +12,13 @@ Feel free to update this README as you progress through the sessions and customi
 
 Remember this is what you will share with your peer at the end of the training for review. 
 
+Paths that need to be changed:
+- **main.do**: please change file paths to your Datawork folder and the Github folder in this file; please set globals for sub-folders here as well
+
+
+Dependencies:
+- An ado folder is added in the **main.do** file. Please comment out the installation code when there is not an ado folder in your computer.
+
+Data:
+- Raw data come from an impact evaluation analysis from Tanzania.
+
